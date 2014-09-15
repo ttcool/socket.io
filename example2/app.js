@@ -21,6 +21,7 @@ var  server = http.createServer(function(req,res){
        socket.broadcast.emit('users',{number:count});
       socket.on('disconnect',function(){
       count--;
-      console.log('User disconnected');
+       console.log('User disconnected');
+      socket.broadcast.emit('users',{number:count});
  }); 
 });

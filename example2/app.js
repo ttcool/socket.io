@@ -15,12 +15,12 @@ var  server = http.createServer(function(req,res){
       io.sockets.on('connection',function(socket){
       count++;
       console.log('User connected');
-      socket.on('disconnect',function(){
-      count--;
-      console.log('User disconnected');
- }); 
     // 将数据发送给已经连接的浏览器 
        socket.emit('users',{number:count});
     //将数据发送给当前已连接的客户端
        socket.broadcast.emit('users',{number:count});
+      socket.on('disconnect',function(){
+      count--;
+      console.log('User disconnected');
+ }); 
 });

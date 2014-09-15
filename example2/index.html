@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Socket.IO Example</title>
+  <body>
+      <h1>Socket.IO Example</h1>
+      <script src="/socket.io/socket.io.js"></script>
+      <script>
+           var  socket  =  io.connect('http://127.0.0.1:3000');
+                socket.on('users',function(data){
+                alert(data.count);
+})
+      </script>
+  </body>
+</head>
+</html>
+

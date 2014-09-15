@@ -14,5 +14,9 @@ var  server = http.createServer(function(req,res){
       console.log('User connected');
       socket.on('disconnect',function(){
       console.log('User disconnected');
- });
+ }); 
+    // 将数据发送给已经连接的浏览器 
+       socket.emit('message',{text:'You have connected!'});
+    //将数据发送给当前已连接的客户端
+       socket.broadcast.emit('message',{text:'A new user has connected'});
 });
